@@ -10,8 +10,8 @@ export default function App() {
     <>
     <View style={styles.container}>
       <NatanaRestauHeader/>
-      <WelcomeScreen/>
-      {/* <MenuItems/> */}
+      {/* <WelcomeScreen/> */}
+      <MenuItems/>
     </View>
     <View style={{backgroundColor: '#495E57'}}>
       <Footer/>
