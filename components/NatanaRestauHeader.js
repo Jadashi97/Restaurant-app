@@ -1,12 +1,26 @@
 import * as React from 'react';
-import { View,Text} from 'react-native';
+import { View,Text, StyleSheet} from 'react-native';
 
 export default function NatanaRestauHeader() {
   return (
-    <View style={{flex:0.18, backgroundColor: '#F4CE14' }}>
-      <Text style={{padding: 40, fontSize: 23, color: 'black', textAlign: 'center'}}>
-        <Text style={{fontWeight:'bold'}}> Natana Restaurant</Text>
+    <View style={headerStyles.container}>
+      <Text style={headerStyles.headerText}>
+        <Text style={headerStyles.innerheader}> Natana Restaurant</Text>
       </Text>
     </View>
   );
 }
+
+// stytling the header
+const headerStyles = StyleSheet.create({
+  container: {
+    flex:0.18,
+    backgroundColor: '#EE9972'
+  },
+  headerText: {
+    padding: 40, fontSize: 30, color: 'black', textAlign: 'center',
+  },
+  innerheader: {
+    fontWeight:'bold'
+  }
+})

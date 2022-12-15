@@ -8,7 +8,7 @@ import MenuItems from './components/MenuItems';
 export default function App() {
   return (
     <>
-    <View style={{flex: 1, backgroundColor: '#495E57',}}>
+    <View style={styles.container}>
       <NatanaRestauHeader/>
       <WelcomeScreen/>
       {/* <MenuItems/> */}
@@ -20,3 +20,9 @@ export default function App() {
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#495E57',
+  }
+})

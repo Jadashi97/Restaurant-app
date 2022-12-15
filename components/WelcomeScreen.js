@@ -9,11 +9,11 @@ export default function WelcomeScreen() {
                 flex: 0.78,
                 paddingHorizontal: 40,
                 paddingVertical: 40,
-                backgroundColor: 'black'
+                backgroundColor: '#333333'
             }}>
             <Text
                 style={{
-                    padding: 40,
+                    padding: 20,
                     fontSize: 30,
                     color: '#EDEFEE',
                     textAlign: 'center',
