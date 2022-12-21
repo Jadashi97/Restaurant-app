@@ -46,7 +46,7 @@ const menuItemsToDisplay = [
   },
 ];
 
-const Item = ({name, price}) => (
+const Item = ({ name, price }) => (
   <View style={menuStyles.innerContainer}>
     <Text style={menuStyles.itemText}>{name}</Text>
     <Text style={menuStyles.itemText}>{price}</Text>
@@ -55,31 +55,25 @@ const Item = ({name, price}) => (
 
 const Separator = () => <View style={menuStyles.separator}/>
 
-const Footer = () => (
-  <Text style={menuStyles.footerText}>
-    All Rights Reserved by Little Lemon 2022
-  </Text>
-);
-
-
 export default function RenderSectionList() {
-  const renderItem = ({item}) => <Item name={item} price={item}/>;
+  const renderItem = ({item}) => <Item name={item.name} price={item.price}/>;
 
-  const renderSectionHeader = ({section: {title}}) => {
-    <Text style={menuStyles.sectionHeader}>
-      {title}
-    </Text>
-  }
+  const renderSectionHeader = ({ section: { title } }) => (
+    <View style={menuStyles.headerStyle}>
+      <Text style={menuStyles.sectionHeader}>
+        {title}
+      </Text>
+    </View>
+  );
+
   return (
     <View style={menuStyles.container}>
       <SectionList
-        keyExtractor={(item, index) => item + index}
         sections={menuItemsToDisplay}
+        keyExtractor={(item, index) => item + index}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
-        ListFooterComponent={Footer}
-        ItemSeparatorComponent={Separator}
-      ></SectionList>
+        ItemSeparatorComponent={Separator}></SectionList>
     </View>
   );
 };
@@ -87,23 +81,26 @@ export default function RenderSectionList() {
 // styles
 const menuStyles = StyleSheet.create({
   container: {
-    flex: 0.95,
+    flex: 1,
   },
   innerContainer: {
     paddingHorizontal: 40,
     paddingVertical: 20,
-    backgroundColor: '#333333',
+    flexDirection:'row',
+    justifyContent: 'space-between',
+  },
+  headerStyle: {
+    backgroundColor: '#F4CE14',
   },
   sectionHeader: {
-    backgroundColor: '#fbdabb',
-    color: '#333333',
-    fontSize: 34, 
+    color: 'black',
+    fontSize: 26, 
     flexWrap:'wrap',
     textAlign:'center',
   },
   itemText: {
     color: '#F4CE14',
-    fontSize: 32,
+    fontSize: 20,
   },
   separator: {
     borderBottomWidth: 1,
@@ -116,4 +113,4 @@ const menuStyles = StyleSheet.create({
     textAlign: 'center',
   }
 
-})
+});
