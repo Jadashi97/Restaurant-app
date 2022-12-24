@@ -1,28 +1,47 @@
 import React, {useState} from 'react';
 
-import { ScrollView, Text, StyleSheet, TextInput } from 'react-native';
+import { ScrollView, Text, StyleSheet, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
 
 const FeedBackForm = () => {
     // declare variables
     const [firstName, onChangeFistName] = useState(" ");
+    const [lastName, onChangeLastName] = useState(" ");
+    const [message, onChangeMessage] = useState(" ");
 
     return (
-        <ScrollView style={styles.container}>
-            <Text style={styles.headingSection}>
-                Welcome to Natana Restaurant.
-            </Text>
-            <Text style={styles.infoSection}>
-                This is a restautarant built to serve our
-                local community with recipes that come from 
-                mama's Kitchen.
-            </Text>
-            <TextInput
-                style={styles.inputBox}
-                value={firstName}
-                placeholder={"First Name"}
-                onChange={onChangeFistName}
-            />
-        </ScrollView>
+        <KeyboardAvoidingView
+            // this handles for what shoould happen to the keyboard when text happens
+            style={styles.container}
+            behavior={Platform.OS === 'ios'? 'padding' : 'height'}> 
+            <ScrollView keyboardDismissMode='on-drag'>
+                <Text style={styles.headingSection}>
+                    Welcome to Natana Restaurant.
+                </Text>
+                <Text style={styles.infoSection}>
+                    This is a restautarant built to serve our
+                    local community with recipes that come from 
+                    mama's Kitchen.
+                </Text>
+                <TextInput
+                    style={styles.inputBox}
+                    value={firstName}
+                    placeholder={"First Name"}
+                    onChange={onChangeFistName}
+                />
+                <TextInput
+                    style={styles.inputBox}
+                    value={lastName}
+                    placeholder={"Last Name"}
+                    onChange={onChangeLastName}
+                />
+                <TextInput
+                    style={styles.messageInput}
+                    value={message}
+                    placeholder={"Message"}
+                    onChange={onChangeMessage}
+                />
+            </ScrollView>
+        </KeyboardAvoidingView>
     );
 };
 
@@ -38,6 +57,14 @@ const styles = StyleSheet.create({
         fontSize: 16, 
         borderColor: 'EDEFEE', 
         backgroundColor: '#EDEFEE',
+    },
+    messageInput: {
+        height: 100,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        fontSize: 16,
+        backgroundColor: '#EDEFEE'
     },
     infoSection: { 
         fontSize: 24, 
