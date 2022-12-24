@@ -6,12 +6,12 @@ const menuItemsToDisplay = [
   {
     title: 'Appetizers',
     data: [
-      { name: 'Hummus', price: '$5.00' },
-      { name: 'Moutabal', price: '$5.00' },
+      { name: 'Keimot', price: '$5.00' },
+      { name: 'janjaru', price: '$5.00' },
       { name: 'Falafel', price: '$7.50' },
       { name: 'Marinated Olives', price: '$5.00' },
       { name: 'Kofta', price: '$5.00' },
-      { name: 'Eggplant Salad', price: '$8.50' },
+      { name: 'mula weeka', price: '$8.50' },
     ],
   },
   {
@@ -112,5 +112,4 @@ const menuStyles = StyleSheet.create({
     flexWrap: 'wrap',
     textAlign: 'center',
   }
-
 });

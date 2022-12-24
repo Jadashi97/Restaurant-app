@@ -14,7 +14,7 @@ export default function NatanaRestauHeader() {
 // stytling the header
 const headerStyles = StyleSheet.create({
   container: {
-    flex:0.18,
+    flex:0.14,
     backgroundColor: '#EE9972'
   },
   headerText: {

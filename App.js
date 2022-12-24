@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import WelcomeScreen from './components/WelcomeScreen';
 import MenuItems from './components/MenuItems';
 import RenderSectionList from './components/RenderSectionList';
+import FeedBackForm from './components/FeedBackForm';
 
 export default function App() {
   return (
@@ -13,7 +14,8 @@ export default function App() {
       <NatanaRestauHeader/>
       {/* <WelcomeScreen/> */}
       {/* <MenuItems/> */}
-      <RenderSectionList/>
+      {/* <RenderSectionList/> */}
+      <FeedBackForm/>
     </View>
     <View style={{backgroundColor: '#495E57'}}>
       <Footer/>
