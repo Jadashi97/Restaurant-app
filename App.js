@@ -14,8 +14,8 @@ export default function App() {
       <NatanaRestauHeader/>
       {/* <WelcomeScreen/> */}
       {/* <MenuItems/> */}
-      {/* <RenderSectionList/> */}
-      <FeedBackForm/>
+      <RenderSectionList/>
+      {/* <FeedBackForm/> */}
     </View>
     <View style={{backgroundColor: '#495E57'}}>
       <Footer/>
