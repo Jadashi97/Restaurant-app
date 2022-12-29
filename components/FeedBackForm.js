@@ -7,6 +7,7 @@ const FeedBackForm = () => {
     const [firstName, onChangeFistName] = useState(" ");
     const [lastName, onChangeLastName] = useState(" ");
     const [message, onChangeMessage] = useState(" ");
+    const [phone, onChangePhoneNumber] = useState('');
 
     return (
         <KeyboardAvoidingView
@@ -35,10 +36,19 @@ const FeedBackForm = () => {
                     onChange={onChangeLastName}
                 />
                 <TextInput
+                    style={styles.inputBox}
+                    value={phone}
+                    placeholder={"Phone Number"}
+                    onChange={onChangePhoneNumber}
+                    keyboardType={"phone-pad"}
+                />
+                <TextInput
                     style={styles.messageInput}
                     value={message}
-                    placeholder={"Message"}
+                    placeholder={"Please Leave FeedBack it helps us deliver the best care to you the customer"}
                     onChange={onChangeMessage}
+                    multiline={true}
+                    maxLength={250}
                 />
             </ScrollView>
         </KeyboardAvoidingView>

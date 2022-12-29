@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView} from 'react-native';
+import { View, Text, ScrollView, StyleSheet} from 'react-native';
 
 export default function WelcomeScreen() {
   return (
@@ -18,7 +18,7 @@ export default function WelcomeScreen() {
                     color: '#EDEFEE',
                     textAlign: 'center',
                 }}>
-                Welcome to Natana Restaurant
+                Welcome to Natana Restaurant 
             </Text> 
             <Text
                 style={{
@@ -43,5 +43,5 @@ const styles = StyleSheet.create({
         paddingVertical: 40,
         backgroundColor: '#333333'
     },
-    
+
 })
