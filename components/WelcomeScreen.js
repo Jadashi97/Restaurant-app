@@ -36,3 +36,12 @@ export default function WelcomeScreen() {
         </ScrollView>
   )
 }
+const styles = StyleSheet.create({
+    container:{
+        flex: 0.78,
+        paddingHorizontal: 40,
+        paddingVertical: 40,
+        backgroundColor: '#333333'
+    },
+    
+})
