@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, StyleSheet, SectionList} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, SectionList, Pressable} from 'react-native';
 
 
 const menuItemsToDisplay = [
@@ -56,6 +56,9 @@ const Item = ({ name, price }) => (
 const Separator = () => <View style={menuStyles.separator}/>
 
 export default function RenderSectionList() {
+
+  const [showMenu, setShowMenu] = useState(false);
+
   const renderItem = ({item}) => <Item name={item.name} price={item.price}/>;
 
   const renderSectionHeader = ({ section: { title } }) => (
@@ -68,12 +71,29 @@ export default function RenderSectionList() {
 
   return (
     <View style={menuStyles.container}>
-      <SectionList
-        sections={menuItemsToDisplay}
-        keyExtractor={(item, index) => item + index}
-        renderItem={renderItem}
-        renderSectionHeader={renderSectionHeader}
-        ItemSeparatorComponent={Separator}></SectionList>
+      {!showMenu && (
+        <Text style={menuStyles.infoSection}>
+          This is a restautarant built to serve our
+          local community with recipes that come from 
+          mama's Kitchen.
+        </Text>
+      )}
+        <Pressable style={menuStyles.button}
+          onPress={()=> {
+            setShowMenu(!showMenu);
+          }}>
+          <Text>
+            {showMenu ? 'Home' : 'View Menu'}
+          </Text>
+        </Pressable>
+        {showMenu && (
+          <SectionList
+            sections={menuItemsToDisplay}
+            keyExtractor={(item, index) => item + index}
+            renderItem={renderItem}
+            renderSectionHeader={renderSectionHeader}
+            ItemSeparatorComponent={Separator}></SectionList>
+        )}
     </View>
   );
 };
@@ -111,5 +131,23 @@ const menuStyles = StyleSheet.create({
     fontSize: 20,
     flexWrap: 'wrap',
     textAlign: 'center',
-  }
+  },
+  infoSection: {
+    fontSize: 24,
+    padding: 20,
+    marginVertical: 8,
+    color: '#EDEFEE',
+    textAlign: 'center',
+    backgroundColor: '#495E57',
+  },
+  button: {
+    fontSize: 22,
+    padding: 10,
+    marginVertical: 8,
+    margin: 40,
+    backgroundColor: '#EDEFEE',
+    borderColor: '#EDEFEE',
+    borderWidth: 2,
+    borderRadius: 12
+  },
 });

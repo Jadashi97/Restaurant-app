@@ -32,6 +32,7 @@ const Item = ({name, price}) => (
 );
 
 export default function MenuItems() {
+
   const renderItem = ({ item }) => <Item name={item.name} price={item.price}/>;
 
   return (

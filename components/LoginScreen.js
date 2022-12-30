@@ -24,8 +24,8 @@ const LoginScreen = () => {
           value={password}
           placeholder={"password"}
           onChange={onChangePassword}
-          keyboardType={"url"}
-          secureTextEntry={"url"}  
+          keyboardType={'default'}
+          secureTextEntry={true}  
         />
         </ScrollView>
     )

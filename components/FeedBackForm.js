@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import { ScrollView, Text, StyleSheet, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
+import { ScrollView, Text, StyleSheet, TextInput, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 
 const FeedBackForm = () => {
     // declare variables
@@ -28,12 +28,16 @@ const FeedBackForm = () => {
                     value={firstName}
                     placeholder={"First Name"}
                     onChange={onChangeFistName}
+                    // below are additional methods and props used to customize textInput
+                    onFocus={()=> {Alert.alert('First name is focused')}}
+                    onBlur={()=> {Alert.alert('First name is now blurred')}}
                 />
                 <TextInput
                     style={styles.inputBox}
                     value={lastName}
                     placeholder={"Last Name"}
                     onChange={onChangeLastName}
+                    clearButtonMode={'always'} // used to add the clear btn
                 />
                 <TextInput
                     style={styles.inputBox}
