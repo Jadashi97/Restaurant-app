@@ -13,8 +13,8 @@ export default function App() {
     <>
     <View style={styles.container}>
       <NatanaRestauHeader/>
-      <LoginScreen/>
-      {/* <WelcomeScreen/> */}
+      {/* <LoginScreen/> */}
+      <WelcomeScreen/>
       {/* <MenuItems/> */}
       {/* <RenderSectionList/> */}
       {/* <FeedBackForm/> */}
