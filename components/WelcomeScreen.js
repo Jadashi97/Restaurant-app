@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet} from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet} from 'react-native';
 
 export default function WelcomeScreen() {
   return (
         <ScrollView
             indicatorStyle='white'
             style={styles.container}>
+            <Image style={styles.logo} source={require('/Users/nyarjijada/Desktop/React-Native/NatanaRestaurant/assets/logo.png')}/>
             <Text style={styles.headerText}>
                 Welcome to Natana Restaurant 
             </Text> 
@@ -27,6 +28,11 @@ const styles = StyleSheet.create({
         paddingVertical: 40,
         backgroundColor: '#333333'
     },
+    logo:{
+        height: 100,
+        width: 300,
+        resizeMode: "contain"
+    },
     headerText: {
         padding: 20,
         fontSize: 30,
@@ -40,4 +46,4 @@ const styles = StyleSheet.create({
         color: '#EDEFEE',
         textAlign: 'center',
     }
-})
+});
