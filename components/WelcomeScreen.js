@@ -17,15 +17,43 @@ export default function WelcomeScreen() {
                 We would like to see you more. We love that you are here to support us 
                 and offer back to the local community.
             </Text>
+            <Image 
+                style={styles.image} 
+                source={require('../assets/pic1.png')}
+                resizeMode= "cover"
+                accessibility={true}
+                accessibilityLabel={'Natana Restaurant food'}
+            />
+            <Image 
+                style={styles.image} 
+                source={require('../assets/pic5.png')}
+                resizeMode= "cover"
+                accessibility={true}
+                accessibilityLabel={'Natana Restaurant food'}
+            />
+            <Image 
+                style={styles.image} 
+                source={require('../assets/pic3.png')}
+                resizeMode= "cover"
+                accessibility={true}
+                accessibilityLabel={'Natana Restaurant food'}
+            />
+            <Image 
+                style={styles.image} 
+                source={require('../assets/pic4.png')}
+                resizeMode= "cover"
+                accessibility={true}
+                accessibilityLabel={'Natana Restaurant food'}
+            />
         </ScrollView>
   )
 };
 
 const styles = StyleSheet.create({
     container:{
-        flex: 0.78,
-        paddingHorizontal: 40,
-        paddingVertical: 40,
+        flex: 1,
+        padding: 24,
+        marginTop: 25,
         backgroundColor: '#333333'
     },
     logo:{
@@ -45,5 +73,10 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         color: '#EDEFEE',
         textAlign: 'center',
-    }
+    },
+    image: {
+        width: 350,
+        height: 250,
+        borderRadius: 10,
+    },
 });
