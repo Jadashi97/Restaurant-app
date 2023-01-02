@@ -6,10 +6,12 @@ export default function WelcomeScreen() {
         <ScrollView
             indicatorStyle='white'
             style={styles.container}>
-            <Image style={styles.logo} source={require('/Users/nyarjijada/Desktop/React-Native/NatanaRestaurant/assets/logo.png')}/>
-            <Text style={styles.headerText}>
-                Welcome to Natana Restaurant 
-            </Text> 
+            <View style={styles.headerWrapper}>
+                <Image style={styles.logo} source={require('../assets/myLogo.png')}/>
+                <Text style={styles.headerText}>
+                    Welcome to Natana Restaurant 
+                </Text> 
+            </View>
             <Text
                 style={styles.mainInfo}>
                 The Natana Restaurant is a charming neighborhood bistro that 
@@ -57,9 +59,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#333333'
     },
     logo:{
-        height: 100,
-        width: 300,
-        resizeMode: "contain"
+        height: 70,
+        width: 70,
+        resizeMode: "cover",
+        borderRadius: 10,
     },
     headerText: {
         padding: 20,
@@ -78,5 +81,10 @@ const styles = StyleSheet.create({
         width: 350,
         height: 250,
         borderRadius: 10,
+    },
+    headerWrapper: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        margin: 10,
     },
 });
