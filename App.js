@@ -10,16 +10,20 @@ import RenderSectionList from './components/RenderSectionList';
 import LoginScreen from './components/LoginScreen';
 import FeedBackForm from './components/FeedBackForm';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator(); //we are getting this from the native-stack
 
 export default function App() {
   return (
     <NavigationContainer>
       <View style={styles.container}>
         <NatanaRestauHeader/>
-        <Stack.Navigator>
+        <Stack.Navigator 
+          initialRouteName='Welcome'
+          screenOptions={{headerStyle: {backgroundColor: '#FBDABB'}}}  
+        >
           <Stack.Screen name="Welcome" component={WelcomeScreen}/>
           <Stack.Screen name="Login" component={LoginScreen}/>
+          <Stack.Screen name="Menu" component={MenuItems}/>
         </Stack.Navigator>
         {/* <MenuItems/> */}
         {/* <RenderSectionList/> */}
