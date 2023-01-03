@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NatanaRestauHeader from './components/NatanaRestauHeader';
 import Footer from './components/Footer';
 import WelcomeScreen from './components/WelcomeScreen';
@@ -8,22 +10,27 @@ import RenderSectionList from './components/RenderSectionList';
 import LoginScreen from './components/LoginScreen';
 import FeedBackForm from './components/FeedBackForm';
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
-    <>
-    <View style={styles.container}>
-      <NatanaRestauHeader/>
-      {/* <LoginScreen/> */}
-      <WelcomeScreen/>
-      {/* <MenuItems/> */}
-      {/* <RenderSectionList/> */}
-      {/* <FeedBackForm/> */}
+    <NavigationContainer>
+      <View style={styles.container}>
+        <NatanaRestauHeader/>
+        <Stack.Navigator>
+          <Stack.Screen name="Welcome" component={WelcomeScreen}/>
+          <Stack.Screen name="Login" component={LoginScreen}/>
 
-    </View>
-    <View style={{backgroundColor: '#495E57'}}>
-      <Footer/>
-    </View>
-    </>
+        </Stack.Navigator>
+        {/* <MenuItems/> */}
+        {/* <RenderSectionList/> */}
+        {/* <FeedBackForm/> */}
+
+      </View>
+      <View style={{backgroundColor: '#495E57'}}>
+        <Footer/>
+      </View>
+    </NavigationContainer>
   );
 }
 
