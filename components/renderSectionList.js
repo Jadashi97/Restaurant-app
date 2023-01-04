@@ -55,13 +55,13 @@ const Item = ({ name, price }) => (
 
 const Separator = () => <View style={menuStyles.separator}/>
 
-export default function RenderSectionList() {
+export default function RenderSectionList({navigation}) {
 
   const [showMenu, setShowMenu] = useState(false);
 
   const renderItem = ({item}) => <Item name={item.name} price={item.price}/>;
 
-  const renderSectionHeader = ({ section: { title } }) => (
+  const renderSectionHeader = ({ section: { title }}) => (
     <View style={menuStyles.headerStyle}>
       <Text style={menuStyles.sectionHeader}>
         {title}
@@ -92,8 +92,10 @@ export default function RenderSectionList() {
             keyExtractor={(item, index) => item + index}
             renderItem={renderItem}
             renderSectionHeader={renderSectionHeader}
-            ItemSeparatorComponent={Separator}></SectionList>
-        )}
+            ItemSeparatorComponent={Separator}></SectionList>)}
+            <Pressable onPress={()=> navigation.goBack()}>
+              <Text style={menuStyles.button}>Go Back</Text>
+            </Pressable>
     </View>
   );
 };

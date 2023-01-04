@@ -83,6 +83,6 @@ const styles = StyleSheet.create({
         color: 'black',
         textAlign: 'center',
         fontSize: 25,
-      },
+    },
 })
 export default LoginScreen

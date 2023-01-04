@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, StyleSheet, useColorScheme, useWindowDimensions} from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet, useColorScheme, useWindowDimensions, Pressable} from 'react-native';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({navigation}) {
     const colorScheme = useColorScheme(); // used to switch between color themes
     const window = useWindowDimensions(); // used to detail the app's dimensions
 
@@ -29,8 +29,8 @@ export default function WelcomeScreen() {
                         colorScheme === 'light'
                         ? {color: '#333333'}
                         : {color: '#EDEFEE'}
-                    ]}>
-                    
+                    ]}
+                    >
                     The Natana Restaurant is a charming neighborhood bistro that 
                     serves simple food and classic cocktails in a casual environment.
                     We would like to see you more. We love that you are here to support us 
@@ -64,10 +64,13 @@ export default function WelcomeScreen() {
                     accessibility={true}
                     accessibilityLabel={'Natana Restaurant food'}
                 /> */}
-                <Text style={styles.regular}>Window Dimensions</Text>
+                <Pressable onPress={()=> navigation.navigate('SectionList')}>
+                    <Text style={styles.buttonText}>View Menu</Text>
+                </Pressable>
+                {/* <Text style={styles.regular}>Window Dimensions</Text>
                 <Text style={styles.regular}>Height: {window.height}</Text>
                 <Text style={styles.regular}>Width: {window.width}</Text>
-                <Text style={styles.regular}>Font scale: {window.fontScale}</Text>
+                <Text style={styles.regular}>Font scale: {window.fontScale}</Text> */}
             </ScrollView>
     )
 };
@@ -108,4 +111,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         margin: 10,
     },
+    buttonText: {
+        color: 'black',
+        textAlign: 'center',
+        fontSize: 25,
+    }
 });
