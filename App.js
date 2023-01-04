@@ -18,7 +18,7 @@ export default function App() {
       <View style={styles.container}>
         <NatanaRestauHeader/>
         <Stack.Navigator 
-          initialRouteName='Welcome'
+          initialRouteName='Login'
           screenOptions={{headerStyle: {backgroundColor: '#FBDABB'}}}  
         >
           <Stack.Screen name="Welcome" component={WelcomeScreen}/>

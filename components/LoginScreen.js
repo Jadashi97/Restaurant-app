@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput } from 'react-native';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
 
     const [email, onChangeEmail] = useState(" ");
     const [password, onChangePassword] = useState("");
@@ -33,7 +33,7 @@ const LoginScreen = () => {
                 keyboardType={'default'}
                 secureTextEntry={true}  
                 />
-                <Pressable onPress={()=> onLogin(!loggedIn)} style={styles.button}>
+                <Pressable onPress={()=> navigation.navigate("Welcome")} style={styles.button}>
                     <Text style={styles.buttonText}>Log in</Text>
                 </Pressable>
                 </>
