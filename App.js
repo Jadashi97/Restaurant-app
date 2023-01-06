@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import {Ionicons} from '@expo/vector-icons';
 import NatanaRestauHeader from './components/NatanaRestauHeader';
 import Footer from './components/Footer';
@@ -12,8 +13,9 @@ import RenderSectionList from './components/RenderSectionList';
 import LoginScreen from './components/LoginScreen';
 import FeedBackForm from './components/FeedBackForm';
 
-const Stack = createNativeStackNavigator(); //we are getting this from the native-stack
-const Tab = createBottomTabNavigator();
+// const Stack = createNativeStackNavigator(); //we are getting this from the native-stack
+// const Tab = createBottomTabNavigator(); //import this from the dependencies bottom-tabs
+const Drawer = createDrawerNavigator(); //import this from the depencies drawer
 
 export default function App() {
   return (
@@ -42,28 +44,43 @@ export default function App() {
     // </NavigationContainer>
 
     ////// THIS IS FOR THE TAB NAVIGATOR //////////////
-    <NavigationContainer>
-      <Tab.Navigator
-        //below is to design & customize the icons
-        screenOptions={({route})=> ({
-          tabBarIcon: ({ focused, color, size}) => {
-            let iconName; 
+    // <NavigationContainer>
+    //   <Tab.Navigator
+    //     //below is to design & customize the icons
+    //     screenOptions={({route})=> ({
+    //       tabBarIcon: ({ focused, color, size}) => {
+    //         let iconName; 
 
-            if(route.name === 'Login') {
-              iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
-            } else if ( route.name === 'Welcome'){
-              iconName = 'ios-list';
-            }
-            return <Ionicons nam={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: 'tomato',
-          tabBarInactiveTintColor: 'gray',
-        })}>
-        <Tab.Screen name= "Login" component={LoginScreen}/>
-        <Tab.Screen name="Welcome" component={WelcomeScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    //         if(route.name === 'Login') {
+    //           iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
+    //         } else if ( route.name === 'Welcome'){
+    //           iconName = 'ios-list';
+    //         }
+    //         return <Ionicons nam={iconName} size={size} color={color} />;
+    //       },
+    //       tabBarActiveTintColor: 'tomato',
+    //       tabBarInactiveTintColor: 'gray',
+    //     })}>
+    //     <Tab.Screen name= "Login" component={LoginScreen}/>
+    //     <Tab.Screen name="Welcome" component={WelcomeScreen} />
+    //   </Tab.Navigator>
+    // </NavigationContainer>
 
+    ////////// This is for the Drawer Navigator(pops from the side) ///////
+    <>
+      <NavigationContainer>
+        <View style={styles.container}>
+          <LittleLemonHeader />
+          <Drawer.Navigator useLegacyImplementation initialRouteName="Login">
+            <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+            <Drawer.Screen name="Login" component={LoginScreen} />
+          </Drawer.Navigator>
+        </View>
+        <View style={styles.footerContainer}>
+          <LittleLemonFooter />
+        </View>
+      </NavigationContainer>
+    </>
   );
 }
 
