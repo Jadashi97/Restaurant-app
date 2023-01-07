@@ -68,19 +68,19 @@ export default function App() {
 
     ////////// This is for the Drawer Navigator(pops from the side) ///////
     <>
-      <NavigationContainer>
-        <View style={styles.container}>
-          <LittleLemonHeader />
-          <Drawer.Navigator useLegacyImplementation initialRouteName="Login">
-            <Drawer.Screen name="Welcome" component={WelcomeScreen} />
-            <Drawer.Screen name="Login" component={LoginScreen} />
-          </Drawer.Navigator>
-        </View>
-        <View style={styles.footerContainer}>
-          <LittleLemonFooter />
-        </View>
-      </NavigationContainer>
-    </>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <NatanaRestauHeader/>
+        <Drawer.Navigator useLegacyImplementation initialRouteName="Login">
+          <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+          <Drawer.Screen name="Login" component={LoginScreen} />
+        </Drawer.Navigator>
+      </View>
+      <View style={styles.footerContainer}>
+        <Footer/>
+      </View>
+    </NavigationContainer>
+  </>
   );
 }
 
